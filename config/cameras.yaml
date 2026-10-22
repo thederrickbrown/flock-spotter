@@ -1,0 +1,15 @@
+# Per-mount camera calibration (spec §6). Keyed by the manifest's camera_config.
+#
+# fov_horizontal_deg: horizontal field of view of the *video* frame. The value below
+#   is a plausible starting point for an iPhone 15 main (1x, 26mm-equivalent) lens in
+#   16:9 video mode. Measure it per §6 before trusting positions: photograph an object
+#   of known width at known distance and solve.
+# yaw_offset_deg: camera mount rotation relative to vehicle forward, degrees clockwise
+#   (positive = camera points right of the vehicle's travel direction). MEASURE THIS
+#   per §6 (distant-landmark method) — a few degrees of error is meters of position
+#   error. 0.0 here is a placeholder, not an assumption you should keep.
+iphone15-wide-mount-a:
+  fov_horizontal_deg: 68.0
+  yaw_offset_deg: 0.0
+  image_width: 1920
+  image_height: 1080

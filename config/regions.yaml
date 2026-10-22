@@ -1,0 +1,8 @@
+# Named bounding boxes for Overpass queries (spec §5). Not consumed until M2's
+# OSM seed step; shipped now so the config plumbing is complete.
+# Order matches Overpass bbox convention: (south, west, north, east).
+san-diego:
+  south: 32.5
+  west: -117.6
+  north: 33.5
+  east: -116.1

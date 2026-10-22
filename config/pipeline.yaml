@@ -1,0 +1,17 @@
+# Every pipeline tunable lives here — no literals in code (M1 constraint).
+# Values mirror the defaults in src/config.py:PipelineConfig.
+
+# Frame extraction / geotagging (spec §4)
+fps: 2.0                       # extraction rate; may need 4 on fast roads (spec §12)
+min_speed_mps: 3.0             # drop slower frames: no baseline, unreliable GPX heading
+
+# Triangulation rejection criteria (spec §7)
+min_rays: 3                    # fewer detections than this can't be trusted
+min_angular_spread_deg: 15.0   # first-to-last ray; near-parallel rays are unstable
+max_condition_number: 1.0e+4   # of A = sum(I - d d^T); degenerate geometry guard
+max_residual_m: 8.0            # mean perpendicular distance from solution to rays
+max_road_distance_m: 60.0      # solution farther than this from the GPX track is bogus
+
+# Clustering (spec §8)
+cluster_eps_m: 15.0
+cluster_min_samples: 1
